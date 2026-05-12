@@ -5,6 +5,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-brand: #3ecf8e;
+  --color-brand-dim: rgba(62, 207, 142, 0.12);
+  --color-surface: #111111;
+  --color-overlay: #171717;
+  --color-border-subtle: #1e1e1e;
+  --color-border-default: #262626;
+  --color-text-primary: #ededed;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #525252;
+  --color-text-ghost: #404040;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -84,7 +94,7 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.09 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -115,6 +125,21 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
 }
 
 @layer base {

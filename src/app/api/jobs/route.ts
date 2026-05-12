@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase";
 import { CreateJobSchema } from "@/lib/schemas";
+import { inngest } from "@/inngest/client";
 
 export async function GET() {
   const supabase = await getSupabaseServerClient();
@@ -39,5 +40,9 @@ export async function POST(request: NextRequest) {
     .single();
 
   if (error) return Response.json({ error: error.message }, { status: 500 });
+
+  // Fire the pipeline — Inngest picks this up and starts Stage 1.
+  await inngest.send({ name: "job/created", data: { jobId: data.id } });
+
   return Response.json({ job: data }, { status: 201 });
 }

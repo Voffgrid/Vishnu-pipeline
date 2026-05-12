@@ -31,7 +31,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-background">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>Vishnu Pipeline</CardTitle>
+          <CardTitle style={{ fontFamily: "var(--font-ysabeau-infant)", fontSize: 20 }}>Vishnu Pipeline</CardTitle>
           <CardDescription>Sign in to access the pipeline.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
