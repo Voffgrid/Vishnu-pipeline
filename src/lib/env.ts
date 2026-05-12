@@ -4,10 +4,10 @@ const serverEnvSchema = z.object({
   NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
-  OPENAI_API_KEY: z.string().min(1).optional(),
-  GEMINI_API_KEY: z.string().min(1).optional(),
-  INNGEST_EVENT_KEY: z.string().min(1).optional(),
-  INNGEST_SIGNING_KEY: z.string().min(1).optional(),
+  OPENAI_API_KEY: z.preprocess((v) => v || undefined, z.string().min(1).optional()),
+  GEMINI_API_KEY: z.preprocess((v) => v || undefined, z.string().min(1).optional()),
+  INNGEST_EVENT_KEY: z.preprocess((v) => v || undefined, z.string().min(1).optional()),
+  INNGEST_SIGNING_KEY: z.preprocess((v) => v || undefined, z.string().min(1).optional()),
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
 });
 
